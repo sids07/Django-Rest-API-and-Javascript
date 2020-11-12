@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% load static%}
+{% block title %}Create New Short URL{% endblock %}
+{% block body %}
+
+
+<form id="updateForm" action='http://127.0.0.1:8000/rest/blood/info/' method='post' enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="name">Name</label>
+      <input type="text" class="form-control name" id="name"  required>
+    </div>
+  </div> 
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="age">Age</label>
+      <input type="text" class="form-control age" id="age"  required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="sex">Sex</label>
+      <input type="text" class="form-control sex" id="sex"  required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="address">Address</label>
+      <input type="text" class="form-control address" id="address"  required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="blood">Blood Group</label>
+      <input type="text" class="form-control blood" id="blood"  required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="ph">Phone Number</label>
+      <input type="text" class="form-control ph" id="ph"  required>
+    </div>
+  </div>
+
+  <input id="myimg" type="file" name="image">
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+<script src="{% static 'index.js' %}"></script>
+<script src="{% static 'js_update.js' %}"></script>
+{% endblock %}

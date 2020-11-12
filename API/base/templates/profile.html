@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% load static%}
+{% block body %}
+
+<style type="text/css">
+  
+  .card-body{
+    width: 300px;
+  }
+  .card-me{
+    width: 300px;
+  margin:90px 20px 20px 20px;
+  float:left;
+  border: 1px solid white;
+}
+</style>
+<template id="personal_card">
+	<div class="card-me">
+  <img class="card-img-top personal-image" alt="..." width="200px" height="200px">
+  <div class="card-body">
+    <h5 id="personal-name" class="card-title personal-name"></h5>
+    <hr>
+  	<p id="personal-blood" class = "card-text personal-blood"></p>
+  	<hr>
+  	<p id="personal-age" class = "card-text personal-age"></p>
+  	<hr>
+  	<p id="personal-sex" class = "card-text personal-sex"></p>
+  	<hr>
+  	<p id="personal-ph" class = "card-text personal-ph"></p>
+  	<hr>
+  	<p id="personal-address" class = "card-text personal-address"></p>
+
+  </div>
+
+</div>
+	</template>
+
+<div id="personal">
+
+</div>
+<a class="btn btn-primary" href="/update" role="button">Update Data</a>
+
+<script src="{% static 'index.js' %}"></script>
+<script src="{% static 'js_profile.js' %}"></script>
+{% endblock %}

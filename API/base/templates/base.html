@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<title>{% block title %}{% endblock %} | shortly</title>
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+ <div class=" d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Great Bear Technologies</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/doner">Doner</a>
+        <a class="nav-link" href="/login">Sign In</a>
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+  {% block body %}
+  {% endblock %}

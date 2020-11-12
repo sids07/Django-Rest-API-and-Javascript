@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load static%}
+{% block body %}
+<style type="text/css">
+	body{
+		color: white;
+	}
+	.card-me{
+	margin:90px 20px 20px 20px;
+	float:left;
+	border: 1px solid white;
+}
+</style>
+<template id="doner_card">
+	<div class="card-me">
+  <img class="card-img-top doner-image" alt="..." width="200px" height="200px">
+  <div class="card-body">
+    <h5 id="doner-name" class="card-title doner-name"></h5>
+    <hr>
+  	<p id="doner-blood" class = "card-text doner-blood"></p>
+  	<hr>
+  	<p id="doner-age" class = "card-text doner-age"></p>
+  	<hr>
+  	<p id="doner-sex" class = "card-text doner-sex"></p>
+  	<hr>
+  	<p id="doner-ph" class = "card-text doner-ph"></p>
+  	<hr>
+  	<p id="doner-address" class = "card-text doner-address"></p>
+
+  </div>
+
+</div>
+	</template>
+
+<div id="myContainer">
+
+</div>
+<script src="{% static 'index.js' %}"></script>
+<script src="{% static 'js_doner.js' %}"></script>
+{% endblock %}

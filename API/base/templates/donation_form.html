@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+<form id="donationForm" action="http://127.0.0.1:8000/rest/blood/info/" method="POST" enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName4">Name</label>
+      <input name="name" type="text" class="form-control" id="inputName4" placeholder="Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputAge4">Age</label>
+      <input name="age" type="Number" class="form-control" id="inputAge4" placeholder="Age">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input name="address" type="text" class="form-control" id="inputAddress" placeholder="Address">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputBlood">Blood Group</label>
+      <input name="blood_group" type="text" class="form-control" id="inputBlood">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputSex">Gender</label>
+      <select name="sex" id="inputSex" class="form-control">
+        <option selected>Choose...</option>
+        <option>M</option>
+        <option>F</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputNumber">Phone Number</label>
+      <input name="phone" type="text" class="form-control" id="inputNumber">
+    </div>
+    <input id="myimg" type="file" name="image">
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+<script src="{% static 'index.js' %}"></script>
+<script src="{% static 'js_donation.js' %}"></script>
+{% endblock %}
