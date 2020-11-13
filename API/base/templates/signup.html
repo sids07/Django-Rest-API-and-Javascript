@@ -99,7 +99,7 @@ button:hover {
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputBlood">Blood Group</label>
-      <select name="sex" id="inputBlood" class="form-control">
+      <select name="blood" id="inputBlood" class="form-control">
         <option selected>Choose...</option>
         <option>A+</option>
         <option>A-</option>
@@ -117,7 +117,19 @@ button:hover {
     </div>
   </div>
 
-    <input id="myimg" type="file" name="image">
+<!--    <input id="myimg" type="file" name="image">-->
+        <p>
+            <strong>Do you have any Disease as follow. You may control-click (Windows) or command-click (Mac) to select more than one.
+            </strong>
+        </p>
+        <select name="disease" multiple size="6">
+            <option value="Heart Disease">Heart Disease</option>
+            <option value="Diabetes">Diabetes</option>
+            <option value="Cancer">Cancer</option>
+            <option value="Blood Disease">Blood Disease</option>
+            <option value="AIDS">AIDS</option>
+            <option value="No Disease">None</option>
+        </select>
 
   </div>
 
@@ -129,6 +141,7 @@ button:hover {
   </div>
 </form>
 </div>
+
    {{message}}
 <script src="{% static 'index.js' %}"></script>
 <script src="{% static 'js_signup.js' %}"></script>

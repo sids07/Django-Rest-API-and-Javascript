@@ -8,9 +8,10 @@ from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.decorators import api_view, authentication_classes
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 from .models import UserInfo
 from .serializer import UserInfoSerializer
@@ -19,10 +20,22 @@ from rest_framework.views import APIView
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 
+
+class InfoBloodListAPI(ListAPIView):
+    serializer_class = UserInfoSerializer
+
+    filter_backends = [SearchFilter, OrderingFilter]
+
+    search_fields = ['blood_group']
+    order_fields = ['blood_group', 'id']
+
+    def get_queryset(self):
+        return UserInfo.objects.all()
+
+
 class InfoClassBasedViews(APIView):
     # authentication_classes = [TokenAuthentication,]
     # permission_classes = [IsAuthenticated,]
-
     def get(self,request,user_id=None):
         if user_id:
             try:

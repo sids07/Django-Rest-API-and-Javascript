@@ -20,7 +20,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
-from blood.models import UserInfo
+from blood.models import UserInfo, Blood, Disease
 
 
 class CustomAuthToken(ObtainAuthToken):
@@ -45,16 +45,29 @@ def register(request):
         return JsonResponse({'message':'Hello','result':serializer.data})
     
     else:
-        #data=JSONParser().parse(request)
-        print(request.POST)
-        serializer=Signup(data=request.POST)
-        print(request.POST['age'])
+        data=JSONParser().parse(request)
+        print(data)
+        serializer=Signup(data=data)
+        print(data)
         if serializer.is_valid():
             name=serializer.validated_data['username']
             email=serializer.validated_data['email']
             password=serializer.validated_data['password']
             confirm_password=serializer.validated_data['confirm_password']
-            
+
+            age = serializer.validated_data['age']
+
+            sex = serializer.validated_data['gender']
+
+            address = serializer.validated_data['address']
+            phone = serializer.validated_data['phone']
+            blood = serializer.validated_data['blood']
+
+            disease = serializer.validated_data['disease']
+
+            print(disease)
+
+            print(address,phone,blood)
             pwd=set_password(password)
             cpwd=set_password(confirm_password)
 
@@ -62,8 +75,15 @@ def register(request):
             print(data)
 
             user=User.objects.create(username=name,email=email,password=pwd,confirm_password=cpwd)
-            print(data)
-            userinfo = UserInfo.objects.create(user=user,name=name,image=data['myimg'].files[0],blood_group=data['inputBlood'].value, phone=data['inputNumber'].value, age=data['inputAge4'].value,  gender=data['inputSex'].value, address=data['inputAddress'].value)
+
+            b_group = Blood.objects.get_or_create(group=blood)
+            print(user)
+            userinfo = UserInfo.objects.create(user=user,blood=b_group[0],name=name,age=age,gender=sex,blood_group=blood,phone=phone,address=address)
+            for d in disease:
+                print(d)
+                disease_obj = Disease.objects.get_or_create(dis_name=d)
+                userinfo.disease.add(disease_obj[0])
+
             print(serializer.data)
             return JsonResponse({'msg':'ok post','result':serializer.data},status=status.HTTP_201_CREATED)
             #return JsonResponse(serializer.data)
