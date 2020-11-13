@@ -2,7 +2,11 @@
 {% load static%}
 {% block title %}Create New Short URL{% endblock %}
 {% block body %}
-
+<style>
+html,body{
+        width: 100%;
+    }
+</style>
 
 <form id="updateForm" action='http://127.0.0.1:8000/rest/blood/info/' method='post' enctype="multipart/form-data">
   <div class="form-row">

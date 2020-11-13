@@ -27,3 +27,6 @@ def donation(request):
 
 def form(request):
     return render(request,'form.html')
+
+def search(request):
+    return render(request,'search.html')

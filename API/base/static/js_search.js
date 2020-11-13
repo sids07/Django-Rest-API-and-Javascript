@@ -1,8 +1,10 @@
-console.log("Wow");
+console.log("Wow search");
+let url_back = window.location.href.split("/").pop().split("?").pop();
 
-let url = 'http://127.0.0.1:8000/rest/blood/info/'
+console.log(url_back);
+let url = 'http://127.0.0.1:8000/rest/blood/info/blood/list?'
 
-async function donate(url) {
+async function search(url) {
     let authentication = localStorage.getItem('Authentication')
     let myToken = "Token"+" "+authentication
     const result = await fetch(url, {
@@ -37,12 +39,7 @@ async function donate(url) {
     return data;
 }
 
-if (isAuthenticated()){
-    let val = donate(url)
-    }
-if (!isAuthenticated()){
-    window.location.href = '/login';
-}
+console.log(url+url_back)
+const searched = search(url+url_back)
 
-console.log(document.querySelector('#search').innerHTML)
 final_logout();

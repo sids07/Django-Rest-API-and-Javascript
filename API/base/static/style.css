@@ -2,7 +2,6 @@ html,
 body {
   background-color: #333;
   color: rgba(255, 255, 255, .5);
-  width: 1000px;
 }
 
 body {
@@ -70,7 +69,4 @@ body {
 .cover .btn-lg {
   padding: .75rem 1.25rem;
   font-weight: 700;
-}
-.flex-column{
-  width: 1000px;
 }
