@@ -1,7 +1,6 @@
 console.log("Wow search");
 let url_back = window.location.href.split("/").pop().split("?").pop();
-
-console.log(url_back);
+console.log(url_back)
 let url = 'http://127.0.0.1:8000/rest/blood/info/blood/list?'
 
 async function search(url) {
