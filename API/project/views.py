@@ -74,7 +74,7 @@ def register(request):
             print(pwd)
             print(data)
 
-            user=User.objects.create(username=name,email=email,password=pwd,confirm_password=cpwd)
+            user=User.objects.create(username=name,email=email,password=pwd)
 
             b_group = Blood.objects.get_or_create(group=blood)
             print(user)

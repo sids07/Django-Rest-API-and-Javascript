@@ -22,7 +22,6 @@ async function donate(url) {
     const cont = document.querySelector('#myContainer');
 
     for (let don of data){
-    console.log(don['image'])
     const temElement = template.content.cloneNode(true);
     temElement.querySelector('.doner-image').setAttribute('src',don['image'])
     temElement.querySelector('.doner-name').innerHTML="Name: "+don['name']
@@ -31,7 +30,12 @@ async function donate(url) {
     temElement.querySelector('.doner-sex').innerHTML="Gender: "+don['gender']
     temElement.querySelector('.doner-ph').innerHTML="Phone: "+don['phone']
     temElement.querySelector('.doner-address').innerHTML="Address: "+ don['address']
-    console.log(temElement.querySelector('.doner-address'))
+        let dis=''
+        don['disease'].forEach(function (element){
+            dis = dis + element['dis_name']+ ','+' '
+        })
+        temElement.querySelector('.doner-disease').innerHTML="Disease: "+ dis
+
     cont.appendChild(temElement);
     }
     return data;
