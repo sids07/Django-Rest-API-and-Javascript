@@ -5,14 +5,25 @@
 <style type="text/css">
   html,
 body {
-  height: 100%;
+      height: 100%;
+      position: relative;
 }
 
 body {
   padding-bottom: 120px;
-  
-}
 
+}
+.login-box{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50% ;
+    transform: translate(-50%,-50%);
+    border: 2px solid #484847;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 #1c1a1a, 0 6px 20px 0 #090808;
+    background: #1b3040;
+}
 .form-signin {
   width: 100%;
   max-width: 330px;
@@ -42,8 +53,19 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+	.back{
+		background: url("../static/back1.jpg");
+		background-image: linear-gradient(to right, rgba(255,0,0,0.5), rgba(255,0,0,0.7));
+		background-size: cover;
+		background-position: center;
+        height: 100%;
+
+	}
+
 </style>
 <div class="container">
+<section class="back" >
+<div class="login-box">
 <form id="login-form" name="log" action="http://127.0.0.1:8000/rest/project/signin/" method="POST" class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputUserName" class="sr-only">Username</label>
@@ -52,16 +74,18 @@ body {
     <input name="passed" type="password" class="form-control" id="inputPassword"placeholder="Password" required>
 
   <div class="checkbox mb-3">
-    
+
     <label ><input type="checkbox" value="remember-me"> Remember me</label>
   </div>
   <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
 
-  <a href="signup">Don't have account. Sign Up.</a>
+  <a href="/signup">Don't have account. Sign Up.</a>
 </form>
-   {{message}}
+<!--   {{message}}-->
 
 </div>
+    </section>
+    </div>
 <script src="{% static 'index.js' %}"></script>
 <script src="{% static 'js_login.js' %}"></script>
 

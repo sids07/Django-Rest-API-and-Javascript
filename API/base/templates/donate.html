@@ -6,10 +6,22 @@
 		color: white;
 	}
 	.card-me{
-	margin:90px 20px 20px 20px;
-	float:left;
-	border: 1px solid white;
+		margin:90px 20px 20px 20px;
+		float:left;
+		border: 1px solid white;
+		height: 550px;
+		width:250px;
+		border: 2px solid #484847;
+    	border-radius: 5px;
+    	box-shadow: 0 4px 8px 0 #1c1a1a, 0 6px 20px 0 #090808;
+
 }
+
+
+	.search-box{
+
+	}
+
 </style>
 <template id="doner_card">
 	<div class="card-me">
@@ -31,14 +43,18 @@
 
 </div>
 	</template>
-
-<form action="http://127.0.0.1:8000/search" id ="search" class="form-group col-md-6">
-      <input name="search" class="form-control mr-sm-2" type="text" placeholder="Search Blood" >
+<section class="back">
+	<div class="search-box">
+<form action="http://127.0.0.1:8000/search" id ="search" class="form-group col-md-6 mt-2">
+      <input name="blood_group" class="form-control mr-sm-2 mb-2" type="text" placeholder="Search Blood" >
+	<input name="address" class="form-control mr-sm-2 mb-2" type="text" placeholder="Search Address" >
       <button class="btn btn-primary" type="submit">Search Blood</button>
     </form>
+		</div>
 <div id="myContainer">
 
 </div>
+	</section>
 <script src="{% static 'index.js' %}"></script>
 <script src="{% static 'js_doner.js' %}"></script>
 {% endblock %}

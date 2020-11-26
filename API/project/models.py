@@ -18,7 +18,6 @@ class User(AbstractBaseUser):
     '''
     email=models.EmailField(max_length=128)
     username=models.CharField(max_length=128,unique=True)
-    confirm_password=models.CharField(max_length=128)
 
     groups = None
     user_permissions = None
